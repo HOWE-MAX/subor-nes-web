@@ -1,0 +1,340 @@
+/* ==========================================================================
+   小霸王 8 位游戏机 · 全局样式与复古设计变量
+   ========================================================================== */
+
+:root {
+  /* 机身塑料 */
+  --shell: #f0ebdd;
+  --shell-hi: #fffbef;
+  --shell-mid: #ded7c5;
+  --shell-shade: #c4bca7;
+  --shell-dark: #a49b84;
+
+  /* 面板红 */
+  --red: #a8202a;
+  --red-hi: #c9333c;
+  --red-dark: #78141c;
+
+  /* 金色点缀 */
+  --gold: #d9a93b;
+  --gold-hi: #f2cf74;
+  --gold-dark: #9d741b;
+
+  /* 屏幕 */
+  --screen: #0a0b0e;
+  --screen-bevel: #35322f;
+
+  /* 墨色 */
+  --ink: #2a2925;
+  --ink-soft: #6b675c;
+
+  /* 状态色 */
+  --led-on: #ff5a3c;
+  --led-off: #4a4038;
+
+  --font-pixel: 'Press Start 2P', 'Zpix', 'Fusion Pixel 12px', 'Silkscreen',
+    'PingFang SC', 'Microsoft YaHei', 'MS Gothic', monospace;
+  --font-term: 'VT323', 'Zpix', 'Consolas', monospace;
+  --font-cn: 'Zpix', 'Fusion Pixel 12px', 'PingFang SC', 'Microsoft YaHei',
+    sans-serif;
+
+  --radius: 14px;
+  --shadow-drop: 0 18px 40px rgba(40, 32, 18, 0.35),
+    0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-cn);
+  color: var(--ink);
+  background-color: #b9b2a1;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.16) 0 2px,
+      rgba(0, 0, 0, 0) 2px 10px
+    ),
+    radial-gradient(circle at 50% 0%, #d9d3c4 0%, #a8a190 65%, #8d8676 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input,
+select {
+  font-family: inherit;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.08);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--shell-dark);
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+}
+
+/* 通用像素字 */
+.pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+}
+
+.term {
+  font-family: var(--font-term);
+  letter-spacing: 0.03em;
+}
+
+/* 通用工具类 */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ==========================================================================
+   控制舱通用面板样式（全局，供各子组件复用）
+   ========================================================================== */
+
+.panel {
+  position: relative;
+  border-radius: 12px;
+  padding: 12px 14px 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 42%),
+    linear-gradient(180deg, #f3eee1 0%, #e3ddcc 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(120, 110, 90, 0.16),
+    0 3px 0 rgba(150, 140, 120, 0.35),
+    0 8px 16px rgba(60, 50, 30, 0.1);
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #57503f;
+  text-transform: uppercase;
+}
+.panel-title::before {
+  content: '';
+  width: 4px;
+  height: 13px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--red-hi), var(--red-dark));
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+.panel-title .en {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #a49b84;
+  letter-spacing: 0.14em;
+}
+
+/* 立体机壳按钮 */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #efece3;
+  background: linear-gradient(180deg, #6a6659 0%, #4a473e 55%, #38352e 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.28),
+    0 2px 0 rgba(0, 0, 0, 0.22),
+    0 4px 8px rgba(0, 0, 0, 0.16);
+  transition: transform 0.06s linear, box-shadow 0.06s linear, filter 0.15s ease;
+  white-space: nowrap;
+}
+.btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.5),
+    0 0 0 rgba(0, 0, 0, 0);
+}
+.btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  filter: grayscale(0.6);
+}
+.btn.red {
+  background: linear-gradient(180deg, #c0333d 0%, #9c1c26 55%, #7a1219 100%);
+}
+.btn.gold {
+  background: linear-gradient(180deg, #f0c765 0%, #cf9c2c 55%, #a8781a 100%);
+  color: #33280c;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.btn.ghost {
+  color: #4b463c;
+  background: linear-gradient(180deg, #fbf8f0, #e4ded0);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(120, 110, 90, 0.22),
+    0 1px 0 rgba(140, 130, 110, 0.3);
+}
+.btn.ghost:hover:not(:disabled) {
+  background: linear-gradient(180deg, #fffdf7, #eae4d6);
+}
+.btn.wide {
+  width: 100%;
+}
+.btn.sm {
+  padding: 5px 9px;
+  font-size: 11.5px;
+  border-radius: 6px;
+}
+
+/* 凹陷显示窗 */
+.inset-window {
+  border-radius: 7px;
+  background: #1a1c1f;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.75),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  color: #7ef29a;
+  font-family: var(--font-term);
+}
+
+/* 开关 */
+.switch {
+  position: relative;
+  width: 46px;
+  height: 24px;
+  border-radius: 13px;
+  background: #b8b19f;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: background 0.16s ease;
+  flex: none;
+}
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fffdf7, #ddd7c7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.16s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.switch.on {
+  background: linear-gradient(180deg, #c93a2c, #8e1d13);
+}
+.switch.on::after {
+  transform: translateX(22px);
+}
+
+/* 滑杆 */
+input[type='range'].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type='range'].slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #26241f, #3c3a33);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+input[type='range'].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 18px;
+  margin-top: -5px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #ffd97a, #c99a2c);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+input[type='range'].slider::-moz-range-track {
+  height: 8px;
+  border-radius: 4px;
+  background: #2c2a25;
+}
+input[type='range'].slider::-moz-range-thumb {
+  width: 14px;
+  height: 18px;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #ffd97a, #c99a2c);
+}
+
+/* 通用小徽标 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  background: rgba(0, 0, 0, 0.08);
+  color: #6b6455;
+}
+.tag.red {
+  background: rgba(168, 32, 42, 0.14);
+  color: var(--red-dark);
+}
+.tag.gold {
+  background: rgba(216, 168, 60, 0.22);
+  color: #7d5a10;
+}

@@ -1,0 +1,55 @@
+内置试玩卡带 · 第三方作品说明
+================================
+
+本目录下的两款 ROM 均为自由软件，非本模拟器作者创作，
+仅作功能演示随 jsnes 项目一同分发。版权归原作者所有。
+
+------------------------------------------------------------------
+lj65.nes  ——  LJ65
+------------------------------------------------------------------
+LJ65 是一个 NES 平台的动作益智游戏（类似俄罗斯方块）。
+
+Copyright (c) 2009 Damian Yerrick
+
+The LJ65 software is distributed under the GNU General Public
+License, version 2 or later, with ABSOLUTELY NO WARRANTY.
+Source code: https://pineight.com/lj65/
+
+LJ65 is not a Tetris product and is not endorsed by Tetris Holding.
+
+完整授权文本见同目录 lj65-README.txt。
+
+------------------------------------------------------------------
+croom.nes  ——  Concentration Room
+------------------------------------------------------------------
+Concentration Room 是一个 NES 平台的翻牌配对游戏。
+
+Copyright (c) 2010 Damian Yerrick <croom@pineight.com>
+
+The accompanying program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License,
+version 3 or later. As a special exception, you may copy and
+distribute exact copies of the program, as published by Damian
+Yerrick, in iNES or UNIF executable form without source code.
+
+This product is not sponsored or endorsed by Nintendo, Ravensburger,
+Hasbro, Mattel, Quaker Oats, NBC Universal, GameTek, or Apple.
+
+完整授权文本见同目录 croom-README.html。
+
+------------------------------------------------------------------
+模拟器内核
+------------------------------------------------------------------
+jsnes —— JavaScript NES emulator
+Copyright (c) Ben Firshman and contributors
+MIT License · https://github.com/bfirsh/jsnes
+
+------------------------------------------------------------------
+商標声明
+------------------------------------------------------------------
+Nintendo、Family Computer、Famicom、NES 均为任天堂株式会社的
+注册商标。本项目与任天堂无任何关联，也未获得其授权或认可。
+"小霸王" 为相关权利人的商标，本项目仅以其作为视觉风格致敬，
+不构成任何形式的关联或背书。
+
+本项目不附带任何商业游戏 ROM，请自行载入你合法拥有的卡带转储文件。

@@ -1,0 +1,23 @@
+# 统一换行符，避免 Windows / macOS / Linux 之间的 diff 噪音
+* text=auto eol=lf
+
+# 二进制资源不做换行符转换
+*.nes binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+# 文本文件强制 LF
+*.ts text eol=lf
+*.vue text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.mjs text eol=lf
+
+# package-lock.json 由 npm 生成，diff 时折叠
+package-lock.json -diff linguist-generated

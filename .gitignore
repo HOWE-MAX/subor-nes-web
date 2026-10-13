@@ -1,0 +1,15 @@
+# 依赖与构建产物
+node_modules/
+dist/
+test-out/
+.tmp/
+*.local
+
+# 编辑器 / 系统
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
