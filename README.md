@@ -207,6 +207,26 @@ jsnes 每模拟一帧回调约 734 个采样点（44.1 kHz / 60.0988 FPS）。
 
 ---
 
+## 部署到 GitHub Pages
+
+仓库内置了 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)，
+推送到 `main` 分支即自动构建并发布到 GitHub Pages（项目站点）。
+
+1. 在仓库 **Settings → Pages** 里把 Source 设为 **GitHub Actions**；
+2. 把仓库推到 GitHub：`git push origin main`；
+3. 等到 Actions 跑完，站点地址为 `https://<用户名>.github.io/<仓库名>/`。
+
+要点：
+
+- 工作流用 `--base=/<仓库名>/` 动态写入 Vite 的 `base`，
+  保证资源在项目子路径下也能正确加载（无需手写仓库名）。
+- 本地 `npm run dev / build` **不受影响**，`base` 只在 CI 构建时被覆盖。
+- 单页应用、无路由，所以不配置 SPA fallback 也没问题；
+  若日后加了 `vue-router`，记得在 `vite.config.ts` 里改用 `createWebHistory()`
+  并在 Pages 侧处理 404 回退。
+
+---
+
 ## 第三方与授权
 
 | 组件 | 授权 |
